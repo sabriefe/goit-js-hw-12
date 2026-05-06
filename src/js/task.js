@@ -75,10 +75,10 @@ form.addEventListener('submit', event => {
           messageColor: 'white',
           backgroundColor: 'rgba(239, 64, 64, 1)',
         });
-        return;
+        throw new Error('No results found');
       }
       btn.style.display = 'block';
-      totalPage = Math.ceil(Number(response.data.total / 20));
+      totalPage = Math.ceil(Number(response.data.totalHits / 20));
       return response.data;
     })
     .then(data => {
